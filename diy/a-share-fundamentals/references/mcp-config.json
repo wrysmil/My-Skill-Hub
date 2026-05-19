@@ -1,0 +1,106 @@
+{
+  "mcpServers": {
+    "mcp-server-chart": {
+      "type": "streamable_http",
+      "url": "<chart_mcp_url>",
+      "description": "图表生成（ECharts），支持雷达图/折线图/柱状图/饼图，返回图片URL"
+    }
+  },
+  "chart_tools": {
+    "generate_radar_chart": {
+      "description": "雷达图：四维度综合评分可视化",
+      "required": true,
+      "params": {
+        "data": {
+          "type": "array",
+          "items": {"name": "string", "value": "number", "group": "string"},
+          "example": [
+            {"name": "盈利能力", "value": 39, "group": "万兴科技"},
+            {"name": "偿债能力", "value": 72, "group": "万兴科技"},
+            {"name": "营运能力", "value": 54, "group": "万兴科技"},
+            {"name": "发展能力", "value": 44, "group": "万兴科技"}
+          ]
+        },
+        "title": {"type": "string", "example": "万兴科技(300624) 四维度评分"}
+      }
+    },
+    "generate_line_chart": {
+      "description": "折线图：多年趋势对比（营收/净利润/毛利率等）",
+      "required_when": "数据≥3年",
+      "params": {
+        "data": {
+          "type": "array",
+          "items": {"time": "string", "value": "number", "group": "string"},
+          "example": [
+            {"time": "2020", "value": 9.76, "group": "营收(亿)"},
+            {"time": "2021", "value": 10.29, "group": "营收(亿)"},
+            {"time": "2020", "value": 1.25, "group": "净利润(亿)"},
+            {"time": "2021", "value": -0.34, "group": "净利润(亿)"}
+          ]
+        },
+        "title": {"type": "string"},
+        "axisXTitle": {"type": "string", "default": ""},
+        "axisYTitle": {"type": "string", "default": ""}
+      }
+    },
+    "generate_pie_chart": {
+      "description": "饼图：费用结构/收入结构（分类≥3项时生成）",
+      "required_when": "分类≥3项",
+      "params": {
+        "data": {
+          "type": "array",
+          "items": {"category": "string", "value": "number"},
+          "example": [
+            {"category": "销售费用", "value": 8.75},
+            {"category": "研发费用", "value": 4.32},
+            {"category": "管理费用", "value": 2.24}
+          ]
+        },
+        "title": {"type": "string"},
+        "innerRadius": {"type": "number", "default": 0, "description": "0=饼图, 0.5=环形图"}
+      }
+    },
+    "generate_column_chart": {
+      "description": "柱状图：公司vs行业对比 或 多年指标对比",
+      "required_when": "对比维度≥3",
+      "params": {
+        "data": {
+          "type": "array",
+          "items": {"category": "string", "value": "number", "group": "string"},
+          "example": [
+            {"category": "销售费用率", "value": 57.07, "group": "2025"},
+            {"category": "销售费用率", "value": 45.14, "group": "2020"}
+          ]
+        },
+        "title": {"type": "string"},
+        "group": {"type": "boolean", "default": false},
+        "axisXTitle": {"type": "string", "default": ""},
+        "axisYTitle": {"type": "string", "default": ""}
+      }
+    }
+  },
+  "response_format": {
+    "description": "所有图表工具返回格式一致",
+    "structure": {
+      "jsonrpc": "2.0",
+      "result": {
+        "content": [{"type": "text", "text": "https://...图片URL"}],
+        "isError": false
+      }
+    },
+    "extract": "result['result']['content'][0]['text'] → 图片URL"
+  },
+  "protocol": {
+    "type": "streamable_http",
+    "steps": [
+      "1. POST initialize → 获取 Mcp-Session-Id header",
+      "2. POST notifications/initialized（带上 Mcp-Session-Id）",
+      "3. POST tools/call（带上 Mcp-Session-Id）→ 获取图片URL"
+    ],
+    "headers": {
+      "Content-Type": "application/json",
+      "Accept": "application/json, text/event-stream",
+      "Mcp-Session-Id": "{从 initialize 响应 header 获取}"
+    }
+  }
+}
