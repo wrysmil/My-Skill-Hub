@@ -99,6 +99,8 @@ git -C <发布仓库> ls-remote origin refs/heads/main
 | DSH 进程缓存索引 | 即使 CDN 已是新版本，`plugin_market` 仍可能返回旧的（`defaultVersion` 是旧版本号）。重启 DSH 才在界面生效 |
 | 拿 `grep` 扫整个 `~/.dsh` | 里面大量 0 字节 junction，会报几百条「系统找不到指定的路径」。只按具体子目录搜 |
 | 把 npm 源插件也塞进 git 发布 | 第三方插件在 `index.json` 里是 npm 源，没有本地源码目录，脚本会自动跳过 |
+| 插件目录里的临时产物被一起发布 | 截图目录、一次性验证脚本（`.tmp-shots/`、`.tmp-verify.mjs`）会被 `cpSync` 原样同步进公开仓库，只能再补一个清理提交。脚本现在跳过 `.tmp*` / `*.tmp` / `*.bak` / `.vscode`，但 `--write` 前仍建议先 `git -C <仓库> diff --stat` 或看脚本打印的「源码差异」一行 |
+| 发布后 index.json 指向含垃圾的提交 | 别为此升版本号：在仓库里 `git rm -r --cached <垃圾路径>` + 删除文件 + 补一个清理提交，然后把 `index.json` 里该插件的 `source.commit` 改成清理提交的 sha，再提交索引并 push。**不要 force-push 抹掉旧提交**——已经装了旧版本的人按那个 sha 拉代码，抹掉会让安装失败 |
 
 ## 参考
 

@@ -48,6 +48,17 @@ const NO_BUMP = flag('--no-bump')
 // 复制时跳过的东西：仓库里不需要，而且会让 diff 一片红。
 const SKIP = new Set(['.git', 'node_modules', '.DS_Store', '.idea', 'dist', '.cache'])
 
+/**
+ * 临时产物一律不同步：截图目录、一次性验证脚本（.tmp-shots、.tmp-verify.mjs）、
+ * 备份文件。踩过：插件目录里留了 .tmp-shots/*.png 与 .tmp-verify.mjs，
+ * 一次发布把它们一起提交进了公开仓库，只能再补一个清理提交。
+ */
+function isSkipped(name) {
+  if (SKIP.has(name)) return true
+  if (name === '.vscode') return true
+  return /^\.tmp/i.test(name) || /\.tmp$/i.test(name) || /\.bak$/i.test(name)
+}
+
 // ------------------------------------------------------------------ 小工具
 
 const log = (...parts) => console.log(...parts)
@@ -171,7 +182,7 @@ function diffDirs(from, to) {
     const fromDir = join(from, rel)
     const toDir = join(to, rel)
     for (const name of readdirSync(fromDir, { withFileTypes: true })) {
-      if (SKIP.has(name.name)) continue
+      if (isSkipped(name.name)) continue
       const relPath = rel ? `${rel}/${name.name}` : name.name
       if (name.isDirectory()) {
         if (!existsSync(join(to, relPath))) return `仓库缺 ${relPath}`
@@ -215,7 +226,7 @@ for (const item of plan) {
     force: true,
     filter: (source) => {
       const name = source.split(/[\\/]/).pop()
-      return !SKIP.has(name)
+      return !isSkipped(name)
     },
   })
   log(`· 同步源码 → ${relative(REPO, item.repoDir)}`)

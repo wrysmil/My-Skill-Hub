@@ -48,7 +48,7 @@ dsh-plugin-publish/
 
 1. 读发布仓库的 `index.json`，找出「本地有源码」的插件；
 2. 升本地 `package.json` 的版本（patch / `--minor` / `--major`）；
-3. 把插件目录复制进仓库（跳过 `.git`、`node_modules`、`dist`）；
+3. 把插件目录复制进仓库（跳过 `.git`、`node_modules`、`dist`，以及 `.tmp-*`、`*.tmp`、`*.bak` 这类临时产物）；
 4. 提交源码，拿到**代码提交的 sha**；
 5. 把 sha 与新版本写进 `index.json`（定点字符串替换，保留原行尾）；
 6. 提交索引 → 推送 → 刷新 jsdelivr → 回读 CDN 校验。
