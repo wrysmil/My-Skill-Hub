@@ -26,6 +26,7 @@
 
 | 技能 | 什么时候用它 |
 | --- | --- |
+| [`evaluate-feature-value`](evaluate-feature-value/) | 有个具体功能提议（或 demo 很快做完、竞品已上线），要算增量价值与持续成本、判断值不值得投入时 |
 | [`mvp-scoping`](mvp-scoping/) | 功能列表在膨胀、不确定第一版该砍到只剩什么时 |
 | [`test-driven-development`](test-driven-development/) | 实现任何功能或修 bug 之前 |
 | [`executing-plans`](executing-plans/) | 有书面计划要分阶段推进并设置检查点时 |

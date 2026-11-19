@@ -59,9 +59,9 @@ ai-builder-skills/
 ├── CONTRIBUTING.md    # 新增技能的规范、验收清单与结构设计原则
 │
 ├── 00-meta/           # 元能力：造技能、找技能、管上下文         (4)
-├── 01-discover/       # 发现真问题：需求澄清、痛点验证           (3)
+├── 01-discover/       # 发现真问题：需求澄清、痛点验证           (4)
 ├── 02-design/         # 定义方案：架构、计划、界面               (6)
-├── 03-build/          # 做出 MVP：编码纪律、版本控制、提示工程   (7)
+├── 03-build/          # 做出 MVP：编码纪律、版本控制、提示工程   (8)
 ├── 04-verify/         # 验证价值：测试、审查、调试、指标         (5)
 ├── 05-business/       # 看懂生意：商业模式、单位经济、行业       (2)
 └── 90-docs/           # 交付物：Word / PDF / PPT / Excel / 文档  (5)
@@ -120,6 +120,7 @@ ai-builder-skills/
 
 | 技能 | 用途 |
 | --- | --- |
+| [`analyze-prebuild-needs`](01-discover/analyze-prebuild-needs/) | **系统级开工前分析**：把系统提议还原成业务问题，证据台账 → 痛点清单 → 一期范围 → 开源底座复用评估 → 开工建议 |
 | [`pain-point-discovery`](01-discover/pain-point-discovery/) | 用户访谈、痛点真假鉴别、JTBD —— 把"朋友都说好"变成可证伪的证据 |
 | [`brainstorming`](01-discover/brainstorming/) | 实现前的需求澄清与方案发散，**动手前的硬性门槛** |
 | [`project-planner`](01-discover/project-planner/) | 把模糊想法归类为提案、Issue 或缺陷报告 |
@@ -143,6 +144,7 @@ ai-builder-skills/
 
 | 技能 | 用途 |
 | --- | --- |
+| [`evaluate-feature-value`](03-build/evaluate-feature-value/) | **功能级投入决策**：对比现有做法算增量价值与持续成本，设计最小验证，给出做 / 先验证 / 改用简方案 / 暂缓 |
 | [`mvp-scoping`](03-build/mvp-scoping/) | MVP 范围裁剪、功能砍杀、最小可验证闭环、上线前 checklist |
 | [`test-driven-development`](03-build/test-driven-development/) | TDD 流程：先写测试，再写实现 |
 | [`executing-plans`](03-build/executing-plans/) | 按计划分阶段执行，并在关键点设置检查 |
@@ -193,6 +195,7 @@ ai-builder-skills/
 ├── SKILL.md          # 技能入口（必填，唯一入口）
 ├── _meta.json        # 发布元数据：ownerId / slug / version / publishedAt
 ├── LICENSE.txt       # 许可证
+├── agents/           # 各 Agent 平台的展示配置（如 agents/openai.yaml）
 ├── references/       # 深度参考文档，按需加载
 ├── scripts/          # 可执行辅助脚本
 ├── examples/         # 示例

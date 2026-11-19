@@ -1,6 +1,6 @@
 # 技能索引 INDEX
 
-> 按「你现在的处境」检索，不是按目录顺序。全部 **32 个技能**。
+> 按「你现在的处境」检索，不是按目录顺序。全部 **34 个技能**。
 
 - 想了解仓库怎么组织、怎么新增技能 → 看 [`README.md`](README.md) 与 [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - 只想找一个能用的技能 → 从这里往下查
@@ -13,6 +13,7 @@
 
 | 你的处境 | 用哪个 |
 | --- | --- |
+| 新系统 / 内部工具立项，开工前要摸清业务现状、一期范围、能不能复用开源底座 | [`01-discover/analyze-prebuild-needs`](01-discover/analyze-prebuild-needs/SKILL.md) |
 | 「朋友都说好」「8 个人都说会用」 | [`01-discover/pain-point-discovery`](01-discover/pain-point-discovery/SKILL.md) |
 | 要设计用户访谈提纲 / 做礼宾测试 | [`01-discover/pain-point-discovery`](01-discover/pain-point-discovery/SKILL.md) |
 | 想法还很模糊，需要先把意图和需求探清楚 | [`01-discover/brainstorming`](01-discover/brainstorming/SKILL.md) |
@@ -22,6 +23,9 @@
 
 | 你的处境 | 用哪个 |
 | --- | --- |
+| 有个具体功能提议（或 demo 做起来很快、竞品已上线），要判断值不值得投入 | [`03-build/evaluate-feature-value`](03-build/evaluate-feature-value/SKILL.md) |
+| 要算这个功能的增量效益、持续成本与误判代价 | [`03-build/evaluate-feature-value`](03-build/evaluate-feature-value/SKILL.md) |
+| 只需要规则的场景却上了 AI / 上了大模型 | [`03-build/evaluate-feature-value`](03-build/evaluate-feature-value/SKILL.md) |
 | 「半年全做完」、功能列表在膨胀、不知第一版砍到什么程度 | [`03-build/mvp-scoping`](03-build/mvp-scoping/SKILL.md) |
 | 要写实现计划 / 拆多步任务 | [`02-design/writing-plans`](02-design/writing-plans/SKILL.md) |
 | 任务跨多轮、`/clear` 后还想接着做 | [`02-design/planning-with-files`](02-design/planning-with-files/SKILL.md) |
@@ -84,10 +88,11 @@
 | [`00-meta/memory-bank`](00-meta/memory-bank/SKILL.md) | `memory-bank` | 「记住这个」「接着上次继续」「保存进度」「还剩多少上下文」 |
 | [`00-meta/dsh-plugin-publish`](00-meta/dsh-plugin-publish/SKILL.md) | `dsh-plugin-publish` | 发布 DSH 插件、插件市场还是旧版本、改 index.json |
 
-### 01-discover — 发现真问题（3）
+### 01-discover — 发现真问题（4）
 
 | 技能 | 别名 / 备注 | 触发场景 |
 | --- | --- | --- |
+| [`01-discover/analyze-prebuild-needs`](01-discover/analyze-prebuild-needs/SKILL.md) | 配套 `references/kickoff-report.md`（报告骨架 + 在线课程平台视频案例） | 系统立项 / 开工前：界定业务边界、还原现状验证痛点、拆能力定一期范围、评估开源底座复用、给开工建议（可开工 / 先试点 / 先验证 / 暂缓） |
 | [`01-discover/pain-point-discovery`](01-discover/pain-point-discovery/SKILL.md) | **新增** | 判断痛点真伪、设计访谈、承诺阶梯、礼宾测试、写失败判据 |
 | [`01-discover/brainstorming`](01-discover/brainstorming/SKILL.md) | `brainstorming` | 任何创造性工作之前，先探清意图、需求与设计 |
 | [`01-discover/project-planner`](01-discover/project-planner/SKILL.md) | 市场 slug `project-planner` | 「提个 bug」「我有个想法」「规划这个功能」、大功能拆阶段 |
@@ -103,10 +108,11 @@
 | [`02-design/frontend-design`](02-design/frontend-design/SKILL.md) | `frontend-design` | 建页面/组件/仪表盘/海报，避免通用 AI 审美 |
 | [`02-design/ui-ux-pro-max`](02-design/ui-ux-pro-max/SKILL.md) | `ui-ux-pro-max` | 可检索的 UI/UX 设计知识库 |
 
-### 03-build — 做出 MVP（7）
+### 03-build — 做出 MVP（8）
 
 | 技能 | 别名 / 备注 | 触发场景 |
 | --- | --- | --- |
+| [`03-build/evaluate-feature-value`](03-build/evaluate-feature-value/SKILL.md) | 与 `01-discover/analyze-prebuild-needs` 互为上下游 | 功能级投入决策：写价值假设与对照方案、算增量效益与持续成本、设计最小验证、做 / 先验证 / 改用简方案 / 暂缓 |
 | [`03-build/mvp-scoping`](03-build/mvp-scoping/SKILL.md) | **新增** | 砍范围、假设排序、写验收阈值、纠正「先开发后验证」 |
 | [`03-build/test-driven-development`](03-build/test-driven-development/SKILL.md) | `test-driven-development` | 写实现代码之前 |
 | [`03-build/executing-plans`](03-build/executing-plans/SKILL.md) | `executing-plans` | 带评审检查点地执行成文计划 |
@@ -151,7 +157,11 @@
 ### 剧本 A：从零做一个新产品
 
 ```
+01-discover/analyze-prebuild-needs    系统级：还原业务问题、一期范围、底座复用、开工建议
+        ↓
 01-discover/pain-point-discovery      先证明痛是真的、有人会付钱
+        ↓
+03-build/evaluate-feature-value       每个具体功能：值不值得做，还是改用简方案
         ↓
 03-build/mvp-scoping                  砍到一个闭环，把致命假设排到最前
         ↓
