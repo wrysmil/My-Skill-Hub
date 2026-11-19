@@ -1,0 +1,6 @@
+interface:
+  display_name: "AI 外星人科普视频制作"
+  short_description: "共创有共鸣的科学选题，复用固定双主角，由资产与分镜两位专家接续设计制作包"
+  default_prompt: "请用 $alien-science-video 和我探索有共鸣的选题，选定后提取主体资产并设计分镜。"
+policy:
+  allow_implicit_invocation: true

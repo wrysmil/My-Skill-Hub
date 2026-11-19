@@ -22,6 +22,8 @@
 
 目录结构本身就是方法论。你不需要记住有哪些技能，只需要知道**自己现在卡在哪一步**。
 
+`00-meta`（元能力）与 `90-docs`（交付物）**贯穿全程**，不占流程位置。`80-content`（内容创作）是**与主线并行的另一条轨道** —— 它同样从「有个想法」出发，但走的是 选题 → 剧本 → 资产 → 分镜。
+
 ## 🗺 Builder 旅程地图
 
 ```mermaid
@@ -42,13 +44,17 @@ flowchart LR
 
     meta["<b>00 META</b> · 元能力<br/>造技能 · 找技能 · 管上下文"]:::side
     docs["<b>90 DOCS</b> · 交付物<br/>文档 · 表格 · 演示 · PDF"]:::side
+    content["<b>80 CONTENT</b> · 内容创作<br/>选题 · 剧本 · 资产 · 分镜"]:::side
     meta -. 贯穿全程 .-> d1
     docs -. 贯穿全程 .-> d1
+    idea -. "另一条轨道" .-> content
 
     classDef side fill:#f6f8fa,stroke:#d0d7de,stroke-dasharray:4 3,color:#57606a
 ```
 
 **读图方式**：实线是前进方向，虚线是回退 —— 回退不是失败，是这套流程最有价值的部分。绝大多数项目死在没有勇气回退。
+
+`80 CONTENT` 不参与这套回退逻辑，它自己走完整的 选题 → 剧本 → 资产 → 分镜。
 
 ## 📁 目录结构
 
@@ -64,6 +70,7 @@ ai-builder-skills/
 ├── 03-build/          # 做出 MVP：编码纪律、版本控制、提示工程   (8)
 ├── 04-verify/         # 验证价值：测试、审查、调试、指标         (5)
 ├── 05-business/       # 看懂生意：商业模式、单位经济、行业       (2)
+├── 80-content/        # 内容创作：选题、剧本、资产、分镜         (2)
 └── 90-docs/           # 交付物：Word / PDF / PPT / Excel / 文档  (5)
 ```
 
@@ -173,6 +180,17 @@ ai-builder-skills/
 | --- | --- |
 | [`business-model-fluency`](05-business/business-model-fluency/) | 商业模式画布、价值主张、单位经济（CAC/LTV/毛利）、陌生行业速通法 |
 | [`a-share-fundamentals`](05-business/a-share-fundamentals/) | A 股基本面分析：AKShare 取数 + 四维度量化评估 |
+
+### 80-content — 内容创作
+
+**核心问题：怎么把一个想法变成能让人看完、并且愿意追更的内容？**
+
+与上面的 Builder 主线**并行**，不参与「发现 → 验证」的流程顺序。
+
+| 技能 | 用途 |
+| --- | --- |
+| [`alien-science-video`](80-content/alien-science-video/) | 固定双主角的 AI 科普剧情短视频：选题共创 + 证据台账 → 主体资产提取 → 分镜拆分 |
+| [`history-cctv-video`](80-content/history-cctv-video/) | 历史 / 文学名场面改写成"被监控拍到"的短剧：选题 → 短剧本 → 主体资产 → 分镜拆分 |
 
 ### 90-docs — 交付物
 
