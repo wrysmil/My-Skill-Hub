@@ -1,0 +1,4 @@
+interface:
+  display_name: "历史名场面监控短剧"
+  short_description: "把历史与文学经典场面转成监控视角短剧及可执行的资产分镜制作包"
+  default_prompt: "使用 $history-cctv-video，帮我从历史经典场面选题开始，生成短剧本、主体资产和分镜制作包。"

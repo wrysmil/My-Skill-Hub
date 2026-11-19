@@ -1,6 +1,6 @@
 # 技能索引 INDEX
 
-> 按「你现在的处境」检索，不是按目录顺序。全部 **34 个技能**。
+> 按「你现在的处境」检索，不是按目录顺序。全部 **36 个技能**。
 
 - 想了解仓库怎么组织、怎么新增技能 → 看 [`README.md`](README.md) 与 [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - 只想找一个能用的技能 → 从这里往下查
@@ -63,6 +63,19 @@
 | 要算这门生意的客单价、CAC、LTV、天花板 | [`05-business/business-model-fluency`](05-business/business-model-fluency/SKILL.md) |
 | 要摸清一个陌生行业的钱怎么流动 | [`05-business/business-model-fluency`](05-business/business-model-fluency/SKILL.md) |
 | 要分析某家 A 股公司基本面 / 财报排雷 | [`05-business/a-share-fundamentals`](05-business/a-share-fundamentals/SKILL.md) |
+
+### 要做内容 / 短视频
+
+与 Builder 主线并行的一条轨道 —— 它不从「验证需求」出发，从「选题」出发。
+
+| 你的处境 | 用哪个 |
+| --- | --- |
+| 想做一个 AI 短视频系列，但不知道从哪个选题下手 | [`80-content/alien-science-video`](80-content/alien-science-video/SKILL.md) · [`80-content/history-cctv-video`](80-content/history-cctv-video/SKILL.md) |
+| 「假如古代被监控拍到」「历史名场面」系列 | [`80-content/history-cctv-video`](80-content/history-cctv-video/SKILL.md) |
+| 外星人科普 / 星际科普 IP / 固定双主角科普剧 | [`80-content/alien-science-video`](80-content/alien-science-video/SKILL.md) |
+| 角色、场景跨集不一致，资产 ID 漂移 | 两者都适用（先读它的 `assets.md` 约定） |
+| 要给每镜写可单独复制的生图 / 生视频提示词 | 两者都适用 |
+| 要分清楚"只写了提示词"和"图真的生成了" | 两者都适用（`text_designed` / `visual_checked` / `visual_locked`） |
 
 ### 要交付东西了 / 要管技能本身
 
@@ -138,6 +151,13 @@
 | [`05-business/business-model-fluency`](05-business/business-model-fluency/SKILL.md) | **新增** | 一周速通行业、产业链钱流、五个数字（ARPU/CAC/LTV/毛利率/回本）、天花板、Go/Pivot/No-Go |
 | [`05-business/a-share-fundamentals`](05-business/a-share-fundamentals/SKILL.md) | `a-share-fundamentals` | A 股基本面、财报分析、ROE、财务排雷、AKShare 采集 |
 
+### 80-content — 内容创作（2）
+
+| 技能 | 别名 / 备注 | 触发场景 |
+| --- | --- | --- |
+| [`80-content/alien-science-video`](80-content/alien-science-video/SKILL.md) | **新增**；自带 4 份 `references/`（角色圣经、专家契约、选题与证据、研究依据） | 固定双主角科普剧：选题共创 + `ClaimLedger` 证据台账、主体资产提取、分镜拆分；默认抖音竖屏 9:16 / 90 秒 / 12–16 镜 |
+| [`80-content/history-cctv-video`](80-content/history-cctv-video/SKILL.md) | **新增**；自带 2 份 `references/`（选题与短剧本、资产与分镜契约） | 历史名场面监控短剧：选题 → 短剧本 → 主体资产 → 分镜；默认中文 / 约 30 秒 / 16:9 / 写实固定高机位 |
+
 ### 90-docs — 交付物（5）
 
 | 技能 | 别名 / 备注 | 触发场景 |
@@ -205,6 +225,20 @@
 03-build/prompt-engineering-expert    提示词写不好时优化
         ↓
 00-meta/skill-creator                 重复劳动 → 沉淀成新技能
+```
+
+### 剧本 D：做一个 AI 短视频系列
+
+```
+80-content/<技能>                     选题共创 → 短剧本 → 主体资产 → 分镜拆分
+        ↓
+assets.md                             资产 ID 与状态：text_designed → visual_checked → visual_locked
+        ↓
+（实际出图 / 生视频 / 发布）            仅在你明确要求时衔接，不自动执行
+        ↓
+04-verify/value-validation            观众是否真的在看，而不是你自己觉得好看
+        ↓
+05-business/business-model-fluency    内容要变现时，算单位经济与天花板
 ```
 
 ---
