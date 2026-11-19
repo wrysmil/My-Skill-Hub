@@ -1,0 +1,4 @@
+interface:
+  display_name: "功能价值判断"
+  short_description: "结合成本、效益、真实使用和验证结果，判断产品功能值不值得做"
+  default_prompt: "用 $evaluate-feature-value 评审这个功能，比较替代方案，给出是否值得做以及试点的继续和停止条件。"

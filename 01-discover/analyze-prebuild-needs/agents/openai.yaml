@@ -1,0 +1,4 @@
+interface:
+  display_name: "系统开工前需求痛点分析"
+  short_description: "用真实业务证据判断系统要解决什么、一期做什么，以及现有底座能复用什么"
+  default_prompt: "用 $analyze-prebuild-needs 分析这个系统的现状和痛点，给出证据、一期范围及开工建议。"
