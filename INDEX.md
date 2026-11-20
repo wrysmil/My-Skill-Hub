@@ -1,6 +1,6 @@
 # 技能索引 INDEX
 
-> 按「你现在的处境」检索，不是按目录顺序。全部 **34 个技能**。
+> 按「你现在的处境」检索，不是按目录顺序。全部 **35 个技能**。
 
 - 想了解仓库怎么组织、怎么新增技能 → 看 [`README.md`](README.md) 与 [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - 只想找一个能用的技能 → 从这里往下查
@@ -63,6 +63,16 @@
 | 要算这门生意的客单价、CAC、LTV、天花板 | [`05-business/business-model-fluency`](05-business/business-model-fluency/SKILL.md) |
 | 要摸清一个陌生行业的钱怎么流动 | [`05-business/business-model-fluency`](05-business/business-model-fluency/SKILL.md) |
 | 要分析某家 A 股公司基本面 / 财报排雷 | [`05-business/a-share-fundamentals`](05-business/a-share-fundamentals/SKILL.md) |
+
+### 上线之后，系统要一直活着
+
+| 你的处境 | 用哪个 |
+| --- | --- |
+| 服务器连不上了 / 数据库崩了 / 网站打不开 | [`06-operate/it-ops-personal`](06-operate/it-ops-personal/SKILL.md) |
+| 怀疑被入侵、数据可能泄露，不知道先取证还是先处置 | [`06-operate/it-ops-personal`](06-operate/it-ops-personal/SKILL.md) |
+| 要定备份策略、做恢复演练、确认「备份能不能真恢复」 | [`06-operate/it-ops-personal`](06-operate/it-ops-personal/SKILL.md) |
+| 要做安全基线检查、漏洞修补、等保/数据合规自查 | [`06-operate/it-ops-personal`](06-operate/it-ops-personal/SKILL.md) |
+| 要配监控告警、做日志检索、健康巡检与根因分析 | [`06-operate/it-ops-personal`](06-operate/it-ops-personal/SKILL.md) |
 
 ### 要交付东西了 / 要管技能本身
 
@@ -137,6 +147,12 @@
 | --- | --- | --- |
 | [`05-business/business-model-fluency`](05-business/business-model-fluency/SKILL.md) | **新增** | 一周速通行业、产业链钱流、五个数字（ARPU/CAC/LTV/毛利率/回本）、天花板、Go/Pivot/No-Go |
 | [`05-business/a-share-fundamentals`](05-business/a-share-fundamentals/SKILL.md) | `a-share-fundamentals` | A 股基本面、财报分析、ROE、财务排雷、AKShare 采集 |
+
+### 06-operate — 长期运维（1）
+
+| 技能 | 别名 / 备注 | 触发场景 |
+| --- | --- | --- |
+| [`06-operate/it-ops-personal`](06-operate/it-ops-personal/SKILL.md) | `it-ops-personal`，来源 skillhub 后经个人整理（见目录内 `CHANGES.md`） | 服务器/数据库故障排查、SSH 与远程运维、安全基线加固、漏洞修复、备份与恢复演练、监控告警、日志检索、应急响应与入侵溯源、证据保全、数据合规与个人信息保护自查、运维自动化 |
 
 ### 90-docs — 交付物（5）
 

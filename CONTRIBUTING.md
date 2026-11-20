@@ -21,6 +21,7 @@
 03-build     做出 MVP
 04-verify    验证价值
 05-business  看懂生意
+06-operate   长期运维
 90-docs      交付物
 ```
 
